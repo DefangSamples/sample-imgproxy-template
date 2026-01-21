@@ -1,0 +1,14 @@
+name: imgproxy
+services:
+  imgproxy:
+    restart: unless-stopped
+    image: darthsim/imgproxy
+    ports:
+    - mode: ingress
+      target: 8080
+      published: 8080
+      protocol: tcp
+    deploy:
+      resources:
+        reservations:
+          memory: 256M
